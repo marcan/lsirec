@@ -18,10 +18,9 @@ Select your adapter.
 
 Make a complete Flash backup to be safe.
 
-```
-67.  Dump all port state
-68.  Show port state summary
-```
+`67.  Dump all port state`
+
+`68.  Show port state summary`
 
 Copy and paste these somewhere safe. Take special note of the SAS WWID.
 
@@ -50,10 +49,9 @@ Edit sbr.cfg with your favorite text editor. You may want to add
 sure how/when this is used, but I've seen it in some SBRs). You may want to
 change the Subsystem VID/PID, or use another SBR as a template.
 
-```
-# python3 sbrtool.py build sbr.cfg sbr_new.bin
-# ./lsirec 0000:01:00.0 writesbr sbr_new.bin
-```
+`# python3 sbrtool.py build sbr.cfg sbr_new.bin`
+
+`# ./lsirec 0000:01:00.0 writesbr sbr_new.bin`
 
 Reboot and cross your fingers.
 
