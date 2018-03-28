@@ -1,4 +1,4 @@
-## lsirec - LSI SAS2008 HBA low-level recovery tool for Linux
+## lsirec - LSI SAS2008/2108 HBA low-level recovery tool for Linux
 
 Currently supports reading and writing the SBR. In the future it may support
 cold-booting the adapter to recover bricked adapters or crossflash between
@@ -61,15 +61,20 @@ use `18.  Change SAS WWID` to update the WWID if necessary, then reboot again
 
 ## Disclaimer
 
-This has barely been tested on one card. Don't blame me if this bricks or
-smokes your HBA. MegaRAID mode has not been tested yet, and you'll still need
-to flash from DOS/UEFI for now since lsiutil does not work with non-operational
+This has barely been tested a couple of cards. Don't blame me if this bricks or
+smokes your HBA. For crossflashing MegaRAID cards to IT/IR, you'll still need
+to flash from DOS/UEFI for now, since lsiutil does not work with non-operational
 adapters under Linux.
 
-DO NOT attempt to use this tool on non-SAS2008 chipsets. It probably won't work
+DO NOT attempt to use this tool on non-SAS2x08 chipsets. It probably won't work
 and may do horrible things. This tool deliberately does not check the VID/PID
 so it can be used on cards with wacky SBRs, but that means it will happily
 try to write the SBR into any random PCI device too.
+
+I have tested this on an LSI SAS2108-based MegaRAID card (Fujitsu D2616) with
+MegaRAID firmware and it successfully backed up the SBR, but the action
+triggered a PCI error in syslog (though the controller kept working). Your
+mileage may vary.
 
 ## License
 
