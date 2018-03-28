@@ -45,8 +45,8 @@ Where 0000:01:00.0 is your PCI device ID.
 `# python3 sbrtool.py parse sbr_backup.bin sbr.cfg`
 
 Edit sbr.cfg with your favorite text editor. You may want to add
-`SASAddr = 0xYOUR_SAS_WWID` to make the SAS WWID is persist in the SBR (I'm not
-sure how/when this is used, but I've seen it in some SBRs). You may want to
+`SASAddr = 0xYOUR_SAS_WWID` to make the SAS WWID persist in the SBR (I'm not
+sure which firmwares use this, but I've seen it in some SBRs). You may want to
 change the Subsystem VID/PID, or use another SBR as a template.
 
 `# python3 sbrtool.py build sbr.cfg sbr_new.bin`
