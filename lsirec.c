@@ -431,7 +431,7 @@ static int wait_scl(lsi_dev_t *d)
     return -1;
 }
 
-void i2c_stop(lsi_dev_t *d)
+static void i2c_stop(lsi_dev_t *d)
 {
     i2c_delay(d);
     set_sda(d, 0);
@@ -442,7 +442,7 @@ void i2c_stop(lsi_dev_t *d)
     i2c_delay(d);
 }
 
-void i2c_start(lsi_dev_t *d)
+static void i2c_start(lsi_dev_t *d)
 {
     i2c_delay(d);
     set_sda(d, 1);
@@ -456,7 +456,7 @@ void i2c_start(lsi_dev_t *d)
     i2c_delay(d);
 }
 
-void i2c_sendbit(lsi_dev_t *d, int bit)
+static void i2c_sendbit(lsi_dev_t *d, int bit)
 {
     set_sda(d, bit);
     i2c_delay(d);
@@ -467,7 +467,7 @@ void i2c_sendbit(lsi_dev_t *d, int bit)
     i2c_delay(d);
 }
 
-int i2c_getbit(lsi_dev_t *d)
+static int i2c_getbit(lsi_dev_t *d)
 {
     set_sda(d, 1);
     i2c_delay(d);
@@ -480,13 +480,13 @@ int i2c_getbit(lsi_dev_t *d)
     return val;
 }
 
-void i2c_sendbyte(lsi_dev_t *d, uint8_t byte)
+static void i2c_sendbyte(lsi_dev_t *d, uint8_t byte)
 {
     for (int i = 0x80; i ; i >>= 1)
         i2c_sendbit(d, byte & i);
 }
 
-uint8_t i2c_getbyte(lsi_dev_t *d)
+static uint8_t i2c_getbyte(lsi_dev_t *d)
 {
     uint8_t val = 0;
     for (int i = 0x80; i ; i >>= 1)
