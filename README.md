@@ -94,6 +94,11 @@ Make note of your SAS WWID (e.g. using MegaCLI or the kernel interfaces).
 
 Where 0000:01:00.0 is your PCI device ID. Unbind the kernel driver (if any).
 
+`# ./lsirec 0000:01:00.0 halt`
+
+Halt the IOP, so that the firmware will not interfere with subsequent
+operations.
+
 `# ./lsirec 0000:01:00.0 readsbr sbr_backup.bin`
 
 Back up your MegaRAID SBR.
