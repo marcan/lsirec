@@ -1,3 +1,3 @@
-CFLAGS = -Wall -O2
+CFLAGS = -Wall -O2 -std=gnu99
 
 all: lsirec
